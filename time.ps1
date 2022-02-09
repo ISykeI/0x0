@@ -1,4 +1,6 @@
 #MADE BY SYKE
+#Discord: syke#116
+
 $logTimes = @(
     '00:00:00',
     '01:00:00',
