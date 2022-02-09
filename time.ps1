@@ -1,5 +1,5 @@
-#MADE BY SYKE
-#Discord: syke#116
+# MADE BY SYKE
+# Discord: syke#1166 / Syke#1166
 
 $logTimes = @(
     '00:00:00',
