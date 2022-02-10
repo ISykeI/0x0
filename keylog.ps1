@@ -60,6 +60,7 @@ Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
       }
     }
   }
+  }
 
   # send logs if code fails
 
